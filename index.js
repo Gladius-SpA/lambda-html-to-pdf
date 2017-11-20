@@ -8,7 +8,7 @@ var s3 = new AWS.S3();
 exports.handler = function (event, context) {
   returnData = {};
   if (event.html) {
-    var outputFilename = Math.random().toString(36).slice(2) + '.pdf';
+    var outputFilename = event.filename + '.pdf';
     var output = '/tmp/' + outputFilename;
 
     writeStream = fs.createWriteStream(output);
@@ -17,7 +17,7 @@ exports.handler = function (event, context) {
       var key = event.location + outputFilename;
       s3.putObject({
         Bucket: bucket,
-        Key: outputFilename,
+        Key: key,
         Body: fs.createReadStream(output),
         ContentType: 'application/pdf',
       }, function (error, data) {
