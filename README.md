@@ -7,7 +7,7 @@ Lambda function to create a .pdf file from HTML and store it on S3
 2. Run `npm install`
 3. Create a .zip file containing this project
 4. Upload .zip file to AWS Lambda
-4. Add ENV variable on AWS Lambda with key: 'S3_BUCKET', value: '*your_bucket_name*'
+5. Add ENV variable on AWS Lambda with key: 'S3_BUCKET', value: '*your_bucket_name*'
 
 
 ## Use
