@@ -4,6 +4,7 @@ Lambda function to create a .pdf file from an HTML input and store it on S3
 
 ## Configuration
 1. Download project
+2. run `npm install`
 2. Change config.js#1 to use your bucket
 3. Create a .zip file containing this project
 4. Upload .zip file to AWS Lambda
