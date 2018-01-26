@@ -16,7 +16,7 @@ exports.handler = function (event, context) {
     wkhtmltopdf(event.html, function (code, signal) {
       var key = event.location + outputFilename;
       s3.putObject({
-        Bucket: bucket,
+        Bucket: event.s3_bucket,
         Key: key,
         Body: fs.createReadStream(output),
         ContentType: 'application/pdf',
