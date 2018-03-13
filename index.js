@@ -10,10 +10,11 @@ exports.handler = function (event, context) {
   if (event.html) {
     var outputFilename = event.filename + '.pdf';
     var output = '/tmp/' + outputFilename;
+    var options = event.options || {};
 
     writeStream = fs.createWriteStream(output);
 
-    wkhtmltopdf(event.html, function (code, signal) {
+    wkhtmltopdf(event.html, options, function (code, signal) {
       var key = event.location + outputFilename;
       s3.putObject({
         Bucket: event.s3_bucket,
