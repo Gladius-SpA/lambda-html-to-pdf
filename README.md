@@ -16,6 +16,9 @@ This function receives the following payload:
 - __location__: Directory to store produced file. Must end with '/'
 - __filename__: .pdf file name without extension
 - __s3_bucket__: Name of the bucket to store the file. Must have writing permissions
+- *__options__**: Object with specific options from [wkhtmltopdf's docs](https://wkhtmltopdf.org/usage/wkhtmltopdf.txt)
+
+\* Optional
 
 ### Use case with ruby's aws-sdk gem
 ```ruby
