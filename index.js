@@ -30,6 +30,8 @@ exports.handler = function (event, context) {
 
         returnData = {
           filename: outputFilename,
+          data: data,
+          size: fs.statSync(output).size
         };
 
         context.done(null, returnData);
