@@ -8,7 +8,9 @@ var s3 = new AWS.S3();
 exports.handler = function (event, context) {
   returnData = {};
   if (event.html) {
-    var outputFilename = event.filename + '.pdf';
+    var sanitizedFilename = event.filename.replace(/^.*(\\|\/)/, '')
+                                          .replace(/[^0-9A-Za-z.\-]/, '_');
+    var outputFilename = sanitizedFilename + '.pdf';
     var output = '/tmp/' + outputFilename;
     var options = event.options || {};
 
