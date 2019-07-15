@@ -6,6 +6,8 @@ var config = require('./config.js');
 var s3 = new AWS.S3();
 
 exports.handler = function (event, context) {
+  console.log("EVENT\n" + JSON.stringify(event, null, 2));
+
   returnData = {};
   if (event.html) {
     var sanitizedFilename = event.filename.replace(/^.*(\\|\/)/, '')
